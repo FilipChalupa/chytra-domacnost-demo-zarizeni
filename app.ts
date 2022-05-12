@@ -4,7 +4,9 @@ import { colorHexToHsl } from "./utils/colorHexToHsl.ts";
 console.log("Starting");
 
 const neewerLiteBaseUrl = "http://localhost:8080/NeewerLite-Python/doAction?";
-const apiListUrl = "http://localhost:8000/api/things";
+//const apiListUrl = "http://localhost:8000/api/things";
+const apiListUrl =
+  "https://czechitas-chytra-domacnost.herokuapp.com/api/things";
 
 const rgbLights = [
   {
