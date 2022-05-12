@@ -13,5 +13,5 @@ deno run --allow-net app.ts
 ## Vývoj
 
 ```sh
-denon run --allow-net app.ts
+denon run --allow-net app.ts development
 ```

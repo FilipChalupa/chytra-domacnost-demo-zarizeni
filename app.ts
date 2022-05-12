@@ -3,10 +3,12 @@ import { colorHexToHsl } from "./utils/colorHexToHsl.ts";
 
 console.log("Starting");
 
+const isDevelopment = Deno.args.includes("development");
+
 const neewerLiteBaseUrl = "http://localhost:8080/NeewerLite-Python/doAction?";
-//const apiListUrl = "http://localhost:8000/api/things";
-const apiListUrl =
-  "https://czechitas-chytra-domacnost.herokuapp.com/api/things";
+const apiListUrl = isDevelopment
+  ? "http://localhost:8000/api/things"
+  : "https://czechitas-chytra-domacnost.herokuapp.com/api/things";
 
 const rgbLights = [
   {
@@ -32,7 +34,7 @@ while (true) {
     const response = await fetch(`${neewerLiteBaseUrl}list`);
     const text = await response.text();
     for (const rgbLight of rgbLights) {
-      rgbLight.linked = text.includes(rgbLight.mac);
+      rgbLight.linked = text.includes(rgbLight.mac); // Checking for weak link
     }
   } catch (error) {
     console.error(error);
