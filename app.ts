@@ -12,14 +12,12 @@ const apiListUrl = isDevelopment
 
 const rgbLights = [
   {
-    linked: false,
     mac: "EC:C7:10:29:B1:22",
     apiUrl: "",
     lastKnownHexColor: "",
     lastUpdate: new Date(),
   },
   {
-    linked: false,
     mac: "C2:BF:C7:30:AA:F3",
     apiUrl: "",
     lastKnownHexColor: "",
@@ -28,32 +26,6 @@ const rgbLights = [
 ];
 
 console.log("Discovering RGB lights");
-await fetch(`${neewerLiteBaseUrl}discover`);
-while (true) {
-  try {
-    const response = await fetch(`${neewerLiteBaseUrl}list`);
-    const text = await response.text();
-    for (const rgbLight of rgbLights) {
-      rgbLight.linked = text.includes(rgbLight.mac); // Checking for weak link
-    }
-  } catch (error) {
-    console.error(error);
-  }
-
-  const notLinkedRgbLights = rgbLights.filter((rgbLight) => !rgbLight.linked);
-
-  if (notLinkedRgbLights.length === 0) {
-    console.log("RGB lights are linked");
-    break;
-  } else {
-    notLinkedRgbLights.forEach((rgbLight) => {
-      console.log(`RGB light ${rgbLight.mac} is not linked yet`);
-    });
-  }
-
-  await delay(2000);
-  console.log("Retrying");
-}
 
 console.log("Getting RGB light api urls");
 const apiListResponse = await fetch(apiListUrl);
