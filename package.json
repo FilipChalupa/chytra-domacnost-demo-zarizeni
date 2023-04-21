@@ -1,0 +1,30 @@
+{
+	"name": "chytra-domacnost-demo-zarizeni",
+	"version": "1.0.0",
+	"description": "Most fyzických zařízení do [chytra-domacnost-api](https://github.com/Czechitas-podklady-WEB/chytra-domacnost-api).",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "ts-node app.ts",
+		"dev": "nodemon app.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FilipChalupa/chytra-domacnost-demo-zarizeni.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/FilipChalupa/chytra-domacnost-demo-zarizeni/issues"
+	},
+	"homepage": "https://github.com/FilipChalupa/chytra-domacnost-demo-zarizeni#readme",
+	"dependencies": {
+		"node-fetch": "^3.3.1",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.4"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.22"
+	}
+}
